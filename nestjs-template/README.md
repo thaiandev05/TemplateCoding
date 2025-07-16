@@ -24,12 +24,70 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Blog-Andev 
+
+## 📋 Mục lục
+
+- [Tính năng](#-tính-năng)
+- [Kiến trúc hệ thống](#-kiến-trúc-hệ-thống)
+- [Yêu cầu hệ thống](#-yêu-cầu-hệ-thống)
+- [Cài đặt](#-cài-đặt)
+- [Cấu hình](#-cấu-hình)
+- [Sử dụng](#-sử-dụng)
+- [API Documentation](#-api-documentation)
+- [Workflow](#-workflow)
+- [Deployment](#-deployment)
+- [Đóng góp](#-đóng-góp)
+- [License](#-license)
+
+## ✨ Tính năng
+
+### 🔐 Xác thực & Phân quyền
+
+### 📧 Email Service
+
+### 👥 User Management
+
+## 🏗️ Kiến trúc hệ thống
+- **Framework**: NestJS 11.x
+- **Language**: TypeScript 5.8.x
+- **Database**: PostgreSQL với Prisma ORM
+- **Authentication**: Passport.js + JWT
+- **Package Manager**: pnpm
+- **Code Quality**: Biome (linting & formatting)
+- **Testing**: Jest
+
+### Module Structure
+src/
+├── modules/
+│   ├── 
+│   ├── 
+│   ├── 
+│   ├── 
+│   └── 
+│   └── 
+├── 
+├── 
+├── 
+├── 
+├── prisma/             # Database service
+```
+## 💻 Yêu cầu hệ thống
+
+- **Node.js**: 23.x hoặc cao hơn
+- **PostgreSQL**: 14.x hoặc cao hơn
+- **pnpm**: 10.x hoặc cao hơn
 
 ## Project setup
 
 ```bash
 $ pnpm install
+```
+
+## Install
+```bash
+git clone <repository-url>
+cd folder
 ```
 
 ## Compile and run the project
@@ -44,25 +102,78 @@ $ pnpm run start:dev
 # production mode
 $ pnpm run start:prod
 ```
-
-## Run tests
-
+### Install Dependencies
 ```bash
-# unit tests
-$ pnpm run test
 
-# e2e tests
-$ pnpm run test:e2e
+pnpm install
 
-# test coverage
-$ pnpm run test:cov
+or
+
+npm install
 ```
 
-## Deployment
-
-Template code using nestjs , it have database ( prisma + postgreql ) , interceptor ...
-
+### Config Enviroment
 ```bash
-$ pnpm install -g mau
-$ mau deploy
+
+cp .env.example .env
+
+./download-envs.sh
 ```
+###  Config database
+```bash
+
+pnpm run db:push
+
+pnpm prisma migrate dev
+```
+## ⚙️ Cấu hình
+
+### Environment Variables
+
+### Database Schema
+
+Dự án sử dụng Prisma với PostgreSQL. Các schema chính:
+
+- **User**: Thông tin người dùng
+- **Ticket**: Support tickets
+- **Post**: Posts
+- **Comment**: Comments
+- **Database**: Database hosting
+
+## 🎯 Sử dụng
+
+### Scripts có sẵn
+```bash
+# Development
+pnpm run start:dev          # Chạy với hot reload
+pnpm run start:debug        # Chạy với debug mode
+
+# Production
+pnpm run build              # Build ứng dụng
+pnpm run start:prod         # Chạy production
+
+# Database
+pnpm run db:push            # Push schema lên database
+pnpm prisma studio          # Mở Prisma Studio
+
+# Code Quality
+pnpm run lint               # Kiểm tra code style
+pnpm run lint:fix           # Tự động fix code style
+pnpm run format             # Format code
+pnpm run typecheck          # Kiểm tra TypeScript
+
+# Testing
+pnpm run test               # Chạy unit tests
+pnpm run test:watch         # Chạy tests với watch mode
+pnpm run test:e2e           # Chạy end-to-end tests
+pnpm run test:cov           # Chạy tests với coverage
+
+# Git Hooks
+pnpm run commit             # Commit với conventional commits
+```
+
+## 📞 Support
+
+- **Email**: thaianthedev@gmail.com
+- **Issues**: Tạo issue trên GitHub
+- **Documentation**: Xem thêm trong `/docs` folder
