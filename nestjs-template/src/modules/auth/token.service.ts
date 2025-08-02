@@ -58,19 +58,4 @@ export class TokenService {
         }
         return code
     }
-
-    // transform phone number to code national
-    toE164(phone: string): string {
-        phone = phone.replace(/\D/g, '');
-        if (phone.startsWith('0')) {
-            return '+84' + phone.substring(1);
-        }
-        if (phone.startsWith('84')) {
-            return '+84' + phone.substring(2);
-        }
-        if (phone.startsWith('+84')) {
-            return phone;
-        }
-        return phone;
-    }
 }

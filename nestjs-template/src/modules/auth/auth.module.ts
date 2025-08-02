@@ -5,18 +5,16 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { AuthCookieStrategy } from 'src/common/strategys/cookie.strategy';
 import { FacebookStrategy } from 'src/common/strategys/facebook.strategy';
 import { GoogleStrategy } from 'src/common/strategys/google.strategy';
-import { EmailModule } from 'src/email/email.module';
-import { CartModule } from '../cart/cart.module';
+import { TicketModule } from '../ticket/ticket.module';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { TokenService } from './token.service';
-import { TicketModule } from '../ticket/ticket.module';
 
 @Module({
     controllers: [AuthController],
     providers: [AuthService, TokenService, FacebookStrategy, GoogleStrategy, AuthCookieStrategy],
     imports: [
-        ConfigModule, EmailModule, CartModule, TicketModule,
+        ConfigModule, TicketModule,
         ScheduleModule.forRoot(),
         JwtModule.registerAsync({
             imports: [ConfigModule],

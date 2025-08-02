@@ -1,4 +1,4 @@
-export class LoginWithPhone {
-    phoneNumber: string
+export class LoginDto {
+    email: string
     password: string
 }
