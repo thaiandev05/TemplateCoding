@@ -3,6 +3,7 @@ import { createLogger, format, Logger, transports } from "winston";
 import chalk from 'chalk';
 import * as dayjs from 'dayjs'
 import { time } from "console";
+import  * as DailyRotateFile from 'winston-daily-rotate-file'
 export class MyLogger implements LoggerService {
 
     private logger: Logger
@@ -21,14 +22,16 @@ export class MyLogger implements LoggerService {
                         })
                     )
                 }),
-                new transports.File({
+                new DailyRotateFile({
                     format: format.combine(
-                        format.combine(),
+                        format.colorize(),
+                        format.label({label: 'orderFunc |'}),
                         format.timestamp(),
                         format.json()
                     ),
                     dirname: 'log',
-                    filename: 'logger.dev.log'
+                    filename: 'logger-log-%DATE%.log',
+                    datePattern: 'YYYY-MM-DD-HH'
                 })
             ]
         })
@@ -59,8 +62,6 @@ export class MyLogger implements LoggerService {
         this.logger.log('fatal', message, { context, time })
     }
     setLogLevels?(levels: LogLevel[]) {
-        // const time = dayjs(Date.now()).format('DD/MM/YYYY HH:mm:ss')
-        // this.logger.log('log', message, { context, time })
     }
 
 }

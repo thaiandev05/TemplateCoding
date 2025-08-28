@@ -4,7 +4,7 @@ import { MyLogger } from './common/logger/my.logger';
 
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create<NestExpressApplication>(AppModule)
 
   app.useLogger(new MyLogger())
 
